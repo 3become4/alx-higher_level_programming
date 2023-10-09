@@ -4,11 +4,11 @@ listint_t *reverse_listint(listint_t **head);
 int is_palindrome(listint_t **head);
 
 /**
- * reverse_listint - Reverses list.
+ * reverse_listint -reverse
  *
  * @head: list start
  *
- * Return: reversed list
+ * Return: list
  */
 listint_t *reverse_listint(listint_t **head)
 {
@@ -27,7 +27,7 @@ listint_t *reverse_listint(listint_t **head)
 }
 
 /**
- * is_palindrome - if palindrome.
+ * is_palindrome - if is_palindrome
  *
  * @head: list start
  *
@@ -71,4 +71,3 @@ int is_palindrome(listint_t **head)
 
 	return (1);
 }
-
