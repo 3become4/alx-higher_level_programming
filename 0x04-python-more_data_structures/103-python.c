@@ -2,15 +2,14 @@
 #include <Python.h>
 
 /**
- * print_pby - Prints bytes
+ * print_python_bytes - Prints bytes information
  *
- * @p: Object
- *
- * Return: void
+ * @p: Python Object
+ * Return: no return
  */
-void print_pby(PyObject *p)
+void print_python_bytes(PyObject *p)
 {
-	char *x;
+	char *string;
 	long int size, i, limit;
 
 	printf("[.] bytes object info\n");
@@ -21,10 +20,10 @@ void print_pby(PyObject *p)
 	}
 
 	size = ((PyVarObject *)(p))->ob_size;
-	x = ((PyBytesObject *)p)->ob_sval;
+	string = ((PyBytesObject *)p)->ob_sval;
 
 	printf("  size: %ld\n", size);
-	printf("  trying string: %s\n", x);
+	printf("  trying string: %s\n", string);
 
 	if (size >= 10)
 		limit = 10;
@@ -34,22 +33,21 @@ void print_pby(PyObject *p)
 	printf("  first %ld bytes:", limit);
 
 	for (i = 0; i < limit; i++)
-		if (x[i] >= 0)
-			printf(" %02x", x[i]);
+		if (string[i] >= 0)
+			printf(" %02x", string[i]);
 		else
-			printf(" %02x", 256 + x[i]);
+			printf(" %02x", 256 + string[i]);
 
 	printf("\n");
 }
 
 /**
- * print_pli - Prints list
+ * print_python_list - Prints list information
  *
- * @p: Object
- *
- * Return: void
+ * @p: Python Object
+ * Return: no return
  */
-void print_pli(PyObject *p)
+void print_python_list(PyObject *p)
 {
 	long int size, i;
 	PyListObject *list;
@@ -67,5 +65,5 @@ void print_pli(PyObject *p)
 		obj = ((PyListObject *)p)->ob_item[i];
 		printf("Element %ld: %s\n", i, ((obj)->ob_type)->tp_name);
 		if (PyBytes_Check(obj))
-			print_pby(obj);
+			print_python_bytes(obj);
 	}
