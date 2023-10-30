@@ -1,2 +1,2 @@
 #!/bin/bash
-git add . && git commit -m "0x06. Python - Classes and Objects $1 commit" && git push
+git add . && git commit -m "0x08-python-more_classes $1 commit" && git push
