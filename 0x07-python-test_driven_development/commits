@@ -1,0 +1,2 @@
+#!/bin/bash
+git add . && git commit -m "0x07. Python - Test-driven development $1 commit" && git push
